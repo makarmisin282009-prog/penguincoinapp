@@ -1,32 +1,19 @@
 body {
-  margin: 0;
-  background: #050b14;
-  color: white;
-  font-family: Arial;
-  text-align: center;
+  background:#050b14;
+  color:white;
+  text-align:center;
+  font-family:Arial;
 }
-
-.app {
-  padding-top: 20px;
+img {
+  width:250px;
+  border-radius:50%;
 }
-
-#tap-btn {
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  margin: 30px auto;
-}
-
-.top {
-  display: flex;
-  justify-content: space-around;
-  font-size: 18px;
-}
-
 button {
-  background: #1e7cff;
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 12px;
+  display:block;
+  margin:10px auto;
+  padding:10px 30px;
+  background:#1e7cff;
+  border:none;
+  color:white;
+  border-radius:10px;
 }
