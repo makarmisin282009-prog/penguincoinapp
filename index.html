@@ -1,81 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <title>PenguinTap</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="app">
-
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <div class="balance">
-      <span class="balance-value" id="balance">0.00</span>
-      <span class="balance-label">Penguin</span>
-    </div>
-    <div class="energy">
-      <div class="energy-bar">
-        <div class="energy-fill" id="energy-fill"></div>
-      </div>
-      <span class="energy-text" id="energy-text">100 / 100</span>
-    </div>
+  <div class="top">
+    <div id="balance">0.00</div>
+    <div id="energy">100</div>
   </div>
 
-  <!-- MAIN CONTENT -->
-  <div class="content">
+  <img id="tap-btn" src="coin.png">
 
-    <!-- TAP PAGE -->
-    <div class="page active" id="page-tap">
-      <div class="coin-container">
-        <img src="penguin.png" id="tap-btn">
-      </div>
-      <p class="tap-hint">Tap to earn Penguin</p>
-    </div>
-
-    <!-- UPGRADE -->
-    <div class="card">
-  <div>Tap Power</div>
-  <div>+<span id="tap-power">0.01</span> per tap</div>
-  <button onclick="buyUpgrade()">Upgrade</button>
-</div>
-
-    <!-- TASKS -->
-    <div class="page" id="page-tasks">
-      <h2>Tasks</h2>
-      <div class="card">Join Telegram Channel</div>
-      <div class="card">Invite Friends</div>
-    </div>
-
-    <!-- SHOP -->
-    <div class="page" id="page-shop">
-      <h2>Shop</h2>
-      <div class="card">Boost x2 — Coming Soon</div>
-      <div class="card">Energy Refill — Coming Soon</div>
-    </div>
-
-    <!-- TOP -->
-    <div class="page" id="page-top">
-      <h2>Top Players</h2>
-      <div class="card">1. Player — 0</div>
-      <div class="card">2. Player — 0</div>
-      <div class="card">3. Player — 0</div>
-    </div>
-
-  </div>
-
-  <!-- BOTTOM NAV -->
-  <div class="nav">
-    <button onclick="openPage('tap')">Tap</button>
-    <button onclick="openPage('upgrade')">Upgrade</button>
-    <button onclick="openPage('tasks')">Tasks</button>
-    <button onclick="openPage('shop')">Shop</button>
-    <button onclick="openPage('top')">Top</button>
-  </div>
-
+  <button onclick="upgrade()">Upgrade Tap</button>
 </div>
 
 <script src="script.js"></script>
