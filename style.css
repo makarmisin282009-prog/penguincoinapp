@@ -1,19 +1,113 @@
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
 body {
-  background:#050b14;
-  color:white;
-  text-align:center;
-  font-family:Arial;
+  margin: 0;
+  background: radial-gradient(circle at top, #0b1d3a, #02060d);
+  color: white;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
-img {
-  width:250px;
-  border-radius:50%;
+
+.app {
+  max-width: 420px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
 }
-button {
-  display:block;
-  margin:10px auto;
-  padding:10px 30px;
-  background:#1e7cff;
-  border:none;
-  color:white;
-  border-radius:10px;
+
+/* TOP */
+
+.top {
+  text-align: center;
 }
+
+.balance {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.energy {
+  font-size: 14px;
+}
+
+.energy-bar {
+  width: 100%;
+  height: 10px;
+  background: #0d244a;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+#energy-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3aa0ff, #6bdcff);
+  width: 50%;
+  transition: width 0.2s;
+}
+
+/* TAP AREA */
+
+.tap-area {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.coin {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(58,160,255,0.4);
+  transition: transform 0.05s;
+}
+
+.coin:active {
+  transform: scale(0.95);
+}
+
+.tap-text {
+  margin-top: 12px;
+  letter-spacing: 4px;
+  font-weight: 600;
+  opacity: 0.6;
+}
+
+/* MENU */
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.menu button {
+  background: linear-gradient(180deg, #1c6cff, #1442a6);
+  border: none;
+  border-radius: 14px;
+  padding: 12px 0;
+  color: white;
+  font-size: 14px;
+}
+
+.menu button:active {
+  opacity: 0.8;
+}
+
+/* TOP LIST */
+
+.top-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.top-list li {
+  padding: 6px;
+  border-bottom: 1px solid rgba(2
