@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>PenguinTap</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>PenguinTap</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="app">
-  <div class="top">
-    <div id="balance">0.00</div>
-    <div id="energy">100</div>
-  </div>
+<h2 id="balance">0</h2>
+<h4 id="energy">0/0</h4>
 
-  <img id="tap-btn" src="penguin.png">
+<img id="tap-btn" src="coin.png">
 
-  <button onclick="upgrade()">Upgrade Tap</button>
-</div>
+<button onclick="upgradeTap()">Upgrade Tap</button>
+<button onclick="upgradeEnergy()">Upgrade Energy</button>
+<button onclick="boost()">Boost x2</button>
+<button onclick="loadTop()">Top</button>
+
+<ul id="top"></ul>
 
 <script src="script.js"></script>
 </body>
-  <script src="script.js"></script>
 </html>
