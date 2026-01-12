@@ -6,10 +6,14 @@ const energy = document.getElementById("energy");
 const tapBtn = document.getElementById("tap-btn");
 const topEl = document.getElementById("top");
 
-function render(d){
-  balance.innerText = d.balance.toFixed(2);
-  energy.innerText = d.energy + "/" + d.max_energy;
+function render(data) {
+  balance.innerText = data.balance.toFixed(2);
+  energy.innerText = `${data.energy} / ${data.max_energy}`;
+
+  const percent = (data.energy / data.max_energy) * 100;
+  document.getElementById("energy-fill").style.width = percent + "%";
 }
+
 
 async function load(){
   const r = await fetch(`${API}/state?user_id=${userId}`);
