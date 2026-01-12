@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #0b1f3a, #050b14);
+  color: #eaf3ff;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.app {
+  max-width: 420px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOP BAR */
+.topbar {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.balance-value {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.balance-label {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.energy {
+  text-align: right;
+}
+
+.energy-bar {
+  width: 120px;
+  height: 8px;
+  background: #0b1a2e;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.energy-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #4da3ff, #1e7cff);
+}
+
+.energy-text {
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 10px;
+}
+
+.page {
+  display: none;
+  text-align: center;
+}
+
+.page.active {
+  display: block;
+}
+
+/* TAP */
+.coin-container {
+  margin-top: 40px;
+}
+
+#tap-btn {
+  width: 280px;
+  border-radius: 50%;
+  box-shadow:
+    0 0 35px rgba(77, 163, 255, 0.4),
+    0 0 80px rgba(0, 0, 0, 0.9);
+  transition: transform 0.1s;
+  user-select: none;
+}
+
+#tap-btn:active {
+  transform: scale(0.93);
+}
+
+.tap-hint {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* CARDS */
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav button {
+  flex: 1;
+  padding: 14px 0;
+  background: none;
+  border: none;
+  color: #9fbbe7;
+  font-size: 13px;
+}
+
+.nav button:hover {
+  background: rgba(255,255,255,0.05);
+}
