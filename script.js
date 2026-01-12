@@ -17,20 +17,26 @@ function updateUI(data) {
   energyText.innerText = `${data.energy} / ${data.max_energy}`;
 }
 
+const tapPowerEl = document.getElementById("tap-power");
+
 async function loadState() {
   const res = await fetch(`${API_URL}/state?user_id=${userId}`);
   const data = await res.json();
   updateUI(data);
+  tapPowerEl.innerText = data.tap_power.toFixed(2);
 }
 
-tapBtn.onclick = async () => {
-  const res = await fetch(`${API_URL}/tap`, {
+async function buyUpgrade() {
+  const res = await fetch(`${API_URL}/upgrade`, {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({ user_id: userId })
   });
   const data = await res.json();
-  updateUI(data);
-};
+  if (data.error) {
+    alert(data.error);
+    return;
+  }
+  loadState();
+}
 
-loadState();
