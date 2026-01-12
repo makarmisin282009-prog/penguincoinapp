@@ -1,42 +1,36 @@
-const tg = window.Telegram.WebApp;
-tg.expand();
+const API = "http://127.0.0.1:8000";
+const userId = 1;
 
-const userId = tg.initDataUnsafe?.user?.id || 1;
-
-// ⚠️ ВАЖНО: поменяй URL, если backend на сервере
-const API_URL = "http://127.0.0.1:8000";
-
-const balanceEl = document.getElementById("balance");
-const energyFill = document.getElementById("energy-fill");
-const energyText = document.getElementById("energy-text");
 const tapBtn = document.getElementById("tap-btn");
+const balanceEl = document.getElementById("balance");
+const energyEl = document.getElementById("energy");
 
-function updateUI(data) {
-  balanceEl.innerText = data.balance.toFixed(2);
-  energyFill.style.width = (data.energy / data.max_energy * 100) + "%";
-  energyText.innerText = `${data.energy} / ${data.max_energy}`;
+function render(d) {
+  balanceEl.innerText = d.balance.toFixed(2);
+  energyEl.innerText = d.energy + "/" + d.max_energy;
 }
 
-const tapPowerEl = document.getElementById("tap-power");
-
-async function loadState() {
-  const res = await fetch(`${API_URL}/state?user_id=${userId}`);
-  const data = await res.json();
-  updateUI(data);
-  tapPowerEl.innerText = data.tap_power.toFixed(2);
+async function load() {
+  const r = await fetch(`${API}/state?user_id=${userId}`);
+  render(await r.json());
 }
 
-async function buyUpgrade() {
-  const res = await fetch(`${API_URL}/upgrade`, {
+tapBtn.onclick = async () => {
+  const r = await fetch(`${API}/tap`, {
     method: "POST",
     headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({ user_id: userId })
+    body: JSON.stringify({user_id: userId})
   });
-  const data = await res.json();
-  if (data.error) {
-    alert(data.error);
-    return;
-  }
-  loadState();
+  render(await r.json());
+};
+
+async function upgrade() {
+  await fetch(`${API}/upgrade`, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({user_id: userId})
+  });
+  load();
 }
 
+load();
